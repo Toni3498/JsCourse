@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JavaScript Promise</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      function displayErr(some) {
+        document.getElementById('demo').innerHTML = some;
+      }
+      function displayPhotos(photos) {
+        let photosHTML = '';
+        for (var i = 0; i < photos.length; i++) {
+          photosHTML += `<img src='${photos[i].thumbnailUrl}'/>`;
+          console.log(photos[i].thumbnailUrl);
+        }
+        document.getElementById('demo').innerHTML = photosHTML;
+      }
+
+      let getPhotosPromise = new Promise(function (xuLyThanhCong, xuLyThatBai) {
+        let req = new XMLHttpRequest();
+        req.open('GET', 'https://jsonplaceholder.typicode.com/photos2');
+        req.onload = function () {
+          if (req.status == 200) {
+            let newRes = JSON.parse(req.response);
+            xuLyThanhCong(newRes);
+          } else {
+            xuLyThatBai('File not Found');
+            throw new Error('Whoops!');
+          }
+        };
+        req.send();
+      });
+
+      async function run() {
+        let photos = await getPhotosPromise;
+        try {
+          displayPhotos(photos);
+        } catch (err) {
+          //displayErr(err);
+          alert('asdsadsad');
+        }
+      }
+
+      run();
+
+      //(async function(){await run();})();
+    </script>
+  </body>
+</html>
