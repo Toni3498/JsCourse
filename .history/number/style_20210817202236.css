@@ -1,0 +1,17 @@
+.input input {
+  margin: 15px;
+}
+.optionCalc button {
+  margin: 10px;
+  padding: 8px;
+  font-size: 25px;
+}
+.input input:hover {
+  background-color: orange;
+  width: 100px;
+  height: 25px;
+  font-size: 35px;
+}
+.optionCalc button:hover {
+  background-color: greenyellow;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS-Exercises</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="input">
+      <label for="ts1">Tham số 1</label><input type="number" id="ts1" /><br />
+      <label for="ts2">Tham số 2</label><input type="number" id="ts2" />
+    </div>
+    <div class="optionCalc">
+      <button id="sum">Cộng</button>
+      <button id="sub">Trừ</button>
+      <button id="mul">Nhân</button>
+      <button id="div">Chia</button>
+
+      <button id="chiaDu">Chia Dư</button>
+      <button id="chiaNguyen">Chia Nguyên</button>
+      <button id="pow">Mũ 2</button>
+    </div>
+    <div class="result">
+      <h2 style="display: inline-block">Kết quả :</h2>
+      <h1 style="display: inline-block" id="kq"></h1>
+    </div>
+
+    <script>
+      var x = document.getElementById('ts1');
+      var y = document.getElementById('ts2');
+
+      //1. Hàm cộng 2 tham số
+      function sumNumber() {
+        document.getElementById('kq').innerHTML = parseInt(x.value) + parseInt(y.value);
+      }
+      //Hàm trừ 2 tham số
+      function subNumber() {
+        document.getElementById('kq').innerHTML = parseInt(x.value) - parseInt(y.value);
+      }
+      //Hàm nhân 2 tham số
+      function multiNumber() {
+        document.getElementById('kq').innerHTML = parseInt(x.value) * parseInt(y.value);
+      }
+      // Hàm chia 2 tham số
+      function divNumber() {
+        document.getElementById('kq').innerHTML = parseFloat(x.value) / parseFloat(y.value);
+      }
+      //hàm chia dư 2 tham số
+      function chiaDu() {
+        document.getElementById('kq').innerHTML = parseInt(x.value) % parseInt(y.value);
+      }
+      // Hàm chia nguyên 2 tham số (a - a % b) / b;
+      function chiaNguyen() {
+        document.getElementById('kq').innerHTML =
+          (parseInt(x.value) - (parseInt(x.value) % parseInt(y.value))) / parseInt(y.value);
+      }
+      // Hàm mũ 2 tham số
+      function powNumber() {
+        document.getElementById('kq').innerHTML = parseInt(x.value) ** parseInt(y.value);
+      }
+
+      // EventListener
+      document.getElementById('sum').addEventListener('click', sumNumber);
+      document.getElementById('sub').addEventListener('click', subNumber);
+      document.getElementById('mul').addEventListener('click', multiNumber);
+      document.getElementById('div').addEventListener('click', divNumber);
+      document.getElementById('chiaDu').addEventListener('click', chiaDu);
+      document.getElementById('chiaNguyen').addEventListener('click', chiaNguyen);
+      document.getElementById('pow').addEventListener('click', powNumber);
+    </script>
+  </body>
+</html>

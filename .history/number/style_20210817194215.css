@@ -1,0 +1,12 @@
+.input input {
+  margin: 15px;
+}
+.optionCalc button {
+  margin: 10px;
+  padding: 8px;
+}
+.input input:hover,
+input:visited {
+  background-color: blue;
+  width: 45px;
+}
